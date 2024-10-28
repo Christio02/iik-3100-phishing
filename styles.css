@@ -13,12 +13,22 @@ main {
   background-position: center; /* Centers the image */
   height: 100%; /* Makes the main section full height */
   display: flex; /* Uses flexbox to center the container */
+  flex-direction: column;
+  gap: 4rem;
   justify-content: center; /* Centers horizontally */
   align-items: center; /* Centers vertically */
 }
 
 .ntnu-logo {
   width: 200px;
+}
+
+.disclaimer {
+  background-color: red;
+}
+
+.disclaimer h2 {
+  color: white;
 }
 
 /* Basic container for the form */
