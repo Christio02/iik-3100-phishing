@@ -1,7 +1,7 @@
 export const handler = async (event, context) => {
   if (event.httpMethod === "POST") {
     try {
-      const { username, password } = req.body;
+      const { username, password } = JSON.parse(event.body);
       const data = `Username: ${username}, Password: ${password}`;
 
       console.log("[Login Attempt: ", data);
